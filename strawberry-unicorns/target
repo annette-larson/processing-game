@@ -1,0 +1,23 @@
+// this makes a simple target on the screen so could use the pressure sensor to throw a dart or something at it?
+
+void setup() {
+  size(640, 360);
+  background(51);
+  noStroke();
+  noLoop();
+}
+
+void draw() {
+  drawTarget(width*0.25, height*0.4, 200, 4); // delete this line and the second one below it to just have one main target
+  drawTarget(width*0.5, height*0.5, 300, 10);
+  drawTarget(width*0.75, height*0.3, 120, 6);
+}
+
+void drawTarget(float xloc, float yloc, int size, int num) {
+  float grayvalues = 255/num;
+  float steps = size/num;
+  for (int i = 0; i < num; i++) {
+    fill(i*grayvalues);
+    ellipse(xloc, yloc, size - i*steps, size - i*steps);
+  }
+}
